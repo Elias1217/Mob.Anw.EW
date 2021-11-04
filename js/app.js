@@ -93,17 +93,11 @@ function takePhoto() {
       theImageTag.src = URL.createObjectURL(blob);
       localStorage.setItem("theImagetag", "Bildsave");
       picdata = localStorage.getItem("Bildsave");
-      sendToWorker();
     })
     .catch(err => alert('Error: ' + err));
 }
  
 
-   sendToWorker = function() {
-     // send data to your worker
-     myWorker.postMessage({
-       data: data
-     });
    };
 
   
