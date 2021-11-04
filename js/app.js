@@ -98,10 +98,12 @@ function takePhoto() {
       
 
   
-  
-  (function() {
-  var data = localStorage.getItem("theImagetag.src");
-});
+window.onload = function() {
+ var picture = localStorage.getItem('image');
+ var image = document.createElement('img');
+ image.src = picture;
+ document.body.appendChild(image);
+};
   
 
   
