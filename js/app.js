@@ -91,14 +91,15 @@ function takePhoto() {
     .then(blob => {
       var theImageTag = document.getElementById("imageTag");
       theImageTag.src = URL.createObjectURL(blob);;
-      localStorage.setItem("imageTag", "Bildsave");
+      localStorage.setItem("theImageTag", "Bildsave");
     })
     .catch(err => alert('Error: ' + err));
 }
       
 
-  
+ 
 window.onload = function() {
+ var img = new Image();
  var picture = localStorage.getItem('imageTag');
  var image = document.createElement('img');
  image.src = picture;
