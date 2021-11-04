@@ -13,7 +13,7 @@ const assets = [
   "/images/coffee7.jpg",
   "/images/coffee8.jpg",
   "/images/coffee9.jpg",
-  "https://yourimage.jpg"
+  "%LocalAppData%\Google\Chrome\User Data\Default\Local Storage\"
 ];
 
 self.addEventListener("install", installEvent => {
