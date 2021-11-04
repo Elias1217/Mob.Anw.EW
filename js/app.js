@@ -99,7 +99,7 @@ function takePhoto() {
 
   
 window.onload = function() {
- var picture = localStorage.getItem('image');
+ var picture = localStorage.getItem('theImagetag.src');
  var image = document.createElement('img');
  image.src = picture;
  document.body.appendChild(image);
