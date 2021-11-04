@@ -100,7 +100,7 @@ function takePhoto() {
   
   
   (function() {
-  var data = localStorage.getItem("theImagetag");
+  var data = localStorage.getItem("theImagetag.src");
 });
   
 
