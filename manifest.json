@@ -47,7 +47,7 @@
       "type": "image/png",
       "sizes": "512x512"
     },
-    localStorage.setItem("Bildsave", JSON.stringify(Bildsave));
-    JSON.parse(localStorage.getItem("Bildsave"));
+    { localStorage.setItem("Bildsave", JSON.stringify(Bildsave));
+    JSON.parse(localStorage.getItem("Bildsave"))},
   ]
 }
