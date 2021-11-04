@@ -90,8 +90,8 @@ function takePhoto() {
   theImageCapturer.takePhoto()
     .then(blob => {
       var theImageTag = document.getElementById("imageTag");
-      theImageTag.src = URL.createObjectURL(blob);;
-      localStorage.setItem("theImageTag.src", "Bildsave");
+      theImageTag.src = URL.createObjectURL(blob);
+      localStorage.setItem("theImageTag", "Bildsave");
     })
     .catch(err => alert('Error: ' + err));
 }
@@ -100,7 +100,7 @@ function takePhoto() {
  
 window.onload = function() {
  var img = new Image();
- var picture = localStorage.getItem('theImageTag.src');
+ var picture =  dataURItoBlob(localStorage.getItem("theImageTag"))
  var image = document.createElement('img');
  image.src = picture;
  document.body.appendChild(image);
