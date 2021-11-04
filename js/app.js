@@ -102,7 +102,7 @@ function takePhoto() {
   
   (function() {
   if(window.localStorage)
-    console.log("Local Storage Supported")
+    window.localStorage.getItem(“Bildsave”)
   else
     console.log("Local Storage Not Supported")
 });
