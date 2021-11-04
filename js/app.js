@@ -91,6 +91,9 @@ function takePhoto() {
     .then(blob => {
       var theImageTag = document.getElementById("imageTag");
       theImageTag.src = URL.createObjectURL(blob);
+      
+      var StoragePic = document.getElementById("storagetag");
+      StoragePic.src = "http://yourimage.jpg";
       localStorage.setItem("theImagetag", "Bildsave");
       picdata = localStorage.getItem("Bildsave");
     })
