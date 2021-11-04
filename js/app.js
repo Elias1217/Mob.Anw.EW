@@ -95,7 +95,7 @@ function takePhoto() {
     })
     .catch(err => alert('Error: ' + err));
 }
- localStorage.getItem("Bildsave");
+ 
 
    
 
@@ -103,7 +103,7 @@ function takePhoto() {
   
   (function() {
   if(window.localStorage)
-    console.log("Local Storage Not Supported")
+    console.log("Local Storage Supported")
   else
     console.log("Local Storage Not Supported")
 });
