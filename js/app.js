@@ -92,11 +92,10 @@ function takePhoto() {
       var theImageTag = document.getElementById("imageTag");
       theImageTag.src = URL.createObjectURL(blob);;
       localStorage.setItem("theImagetag", "Bildsave");
-      picdata = localStorage.getItem("Bildsave");
     })
     .catch(err => alert('Error: ' + err));
 }
- 
+ localStorage.getItem("Bildsave");
 
    
 
