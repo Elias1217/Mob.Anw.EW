@@ -95,6 +95,8 @@ function takePhoto() {
     })
     .catch(err => alert('Error: ' + err));
 }
+ 
+  
 
   
   
@@ -103,7 +105,7 @@ function takePhoto() {
     console.log("Local Storage Supported")
   else
     console.log("Local Storage Not Supported")
-})();
+});
   
 
   
