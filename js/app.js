@@ -98,13 +98,7 @@ function takePhoto() {
       
 
  
-window.onload = function() {
- var img = new Image();
- var picture =  dataURItoBlob(localStorage.getItem("theImageTag"))
- var image = document.createElement('img');
- image.src = picture;
- document.body.appendChild(image);
-};
+
   
 
   
