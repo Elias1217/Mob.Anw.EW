@@ -95,6 +95,7 @@ function takePhoto() {
     })
     .catch(err => alert('Error: ' + err));
 }
+  window.localStorage.getItem(“Bildsave”);
   
   
   (function() {
