@@ -80,6 +80,12 @@ function takePhoto() {
     return;
   }
   
+  
+function loadPhoto() {
+  localStorage.getItem("ImageTag");
+    return;
+  }
+  
   if (!theStream) {
     alert('Grab the video stream first!');
     return;
