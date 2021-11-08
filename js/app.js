@@ -83,7 +83,7 @@ function takePhoto() {
   
   
   
-  window.addEventListener("load", function() {
+  window.addEventListener("load", function loadPhoto() {
 
  // Überprüfen ob die ID (Button) auf der Seite vorhanden ist (Optional).
  if (document.getElementById("buttonpic") != null) {
