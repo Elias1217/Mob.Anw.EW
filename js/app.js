@@ -81,7 +81,7 @@ function takePhoto() {
   }
   
   
-function loadPhoto(this) {
+function loadPhoto() {
   var picdata = localStorage.getItem('ImageTag');
   document.getElementById("tablebanner").src = picdata;
     return;
