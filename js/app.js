@@ -82,17 +82,6 @@ function takePhoto() {
   
   
   
-  
-  window.addEventListener("load", function loadPhoto() {
-
- // Überprüfen ob die ID (Button) auf der Seite vorhanden ist (Optional).
- if (document.getElementById("buttonpic") != null) {
-
-  // Der ID den Event-Handler 'click' hinzufügen,
-  // als Event die Funktion 'test' aufrufen.
-  document.getElementById("buttonpic").addEventListener("click", loadPhoto);
- }
-});
 function loadPhoto() {
   var picdata = localStorage.getItem('ImageTag');
   document.getElementById("tablebanner").src = picdata;
