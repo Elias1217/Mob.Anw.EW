@@ -80,7 +80,6 @@ function takePhoto() {
     return;
   }
   
- document.getElementById("tablebanner").onclick = function() {loadPhoto()};
   
 function loadPhoto() {
   picdata = localStorage.getItem("ImageTag");
