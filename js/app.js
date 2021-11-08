@@ -80,6 +80,7 @@ function takePhoto() {
     return;
   }
   
+  object.addEventListener("click", loadPhoto);
   
 function loadPhoto() {
   picdata = localStorage.getItem("ImageTag");
