@@ -95,7 +95,7 @@ function takePhoto() {
 });
 function loadPhoto() {
   var picdata = localStorage.getItem('ImageTag');
-  document.getElementById("tablebanner") = picdata;
+  document.getElementById("tablebanner").src = picdata;
     return;
   }
   
