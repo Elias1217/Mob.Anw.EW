@@ -109,7 +109,7 @@ reader.onloadend = function() {
   var base64data = reader.result;                
   console.log(base64data);
     }
-    localStorage.setItem("ImageTag", reader.result);
+    localStorage.setItem("ImageTag", base64data);
     
     
     //
