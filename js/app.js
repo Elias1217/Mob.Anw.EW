@@ -117,7 +117,11 @@ reader.onloadend = function() {
 }
   
 function loadPhoto(blob) {
-
+  return new Promise((resolve, _) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.readAsDataURL(blob);
+  });
 }
 
 var target = document.getElementById('target');
