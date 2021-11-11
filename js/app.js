@@ -117,7 +117,7 @@ function takePhoto() {
 }
   
 function loadPhoto(){
-    localStorage.getItem(Base64Img);
+    localStorage.getItem("Base64Img");
 }
 
 var target = document.getElementById('target');
