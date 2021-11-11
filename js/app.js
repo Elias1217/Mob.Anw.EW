@@ -116,12 +116,8 @@ function takePhoto() {
     .catch(err => alert('Error: ' + err));
 }
   
-function loadPhoto(blob) {
-  return new Promise((resolve, _) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result);
-    reader.readAsDataURL(blob);
-  });
+function loadPhoto() {
+  localStorage.getItem("Base64Img");
 }
 
 var target = document.getElementById('target');
