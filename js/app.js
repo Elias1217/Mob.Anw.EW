@@ -93,7 +93,15 @@ function takePhoto() {
     .then(blob => {
       var theImageTag = document.getElementById("imageTag");
       theImageTag.src = URL.createObjectURL(blob, {autorevoke : false});
-    <img src="blob:https://brave-poitras-892deb.netlify.app/0e4928aa-a46b-4062-b75c-03645372bb0f" name=blobimage/>
+    //
+    var reader = new FileReader();
+reader.readAsDataURL(blob); 
+reader.onloadend = function() {
+  var base64data = reader.result;                
+  console.log(base64data);
+}
+    
+    //
       localStorage.setItem("ImageTag", blobimage);
     })
     .catch(err => alert('Error: ' + err));
@@ -107,7 +115,14 @@ function takePhoto() {
   
 }
 function loadPhoto() {
-  var picdata = localStorage.getItem('ImageTag');
+  //var picdata = localStorage.getItem('ImageTag');
+  function blobToBase64(blob) {
+  return new Promise((resolve, _) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.readAsDataURL(blob);
+  });
+}
   document.getElementById("tablebanner").src = picdata;
     return;
   }
