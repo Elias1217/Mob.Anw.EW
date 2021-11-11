@@ -1,6 +1,6 @@
 
 const container = document.querySelector(".container");
-
+<script type ="module" src="app.js"></script>
 import { Cache } from 'aws-amplify';
 
 const coffees = [
