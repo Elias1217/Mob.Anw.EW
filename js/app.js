@@ -1,6 +1,8 @@
 
 const container = document.querySelector(".container");
 
+import { Cache } from 'aws-amplify';
+
 const coffees = [
   { name: "Perspiciatis", image: "images/coffee1.jpg" },
   { name: "Voluptatem", image: "images/coffee2.jpg" },
