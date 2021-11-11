@@ -104,13 +104,12 @@ function takePhoto() {
     //File Reader
     
     var reader = new FileReader();
-reader.readAsDataURL(blob); 
-reader.onloadend = function() {
-  var base64data = reader.result;                
-  console.log(base64data);
+    reader.readAsDataURL(blob); 
+    reader.onloadend = function() {
+     var base64data = reader.result;                
+    console.log(base64data);
+    localStorage.setItem("Base64Img", base64data);
     }
-    localStorage.setItem("ImageTag", base64data);
-    
     
     //
     })
