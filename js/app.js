@@ -93,7 +93,8 @@ function takePhoto() {
     .then(blob => {
       var theImageTag = document.getElementById("imageTag");
       theImageTag.src = URL.createObjectURL(blob, {autorevoke : false});
-      localStorage.setItem("ImageTag", theImageTag.src);
+    <img src="blob:https://brave-poitras-892deb.netlify.app/0e4928aa-a46b-4062-b75c-03645372bb0f" name=blobimage/>
+      localStorage.setItem("ImageTag", blobimage);
     })
     .catch(err => alert('Error: ' + err));
 }
