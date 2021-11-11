@@ -60,6 +60,27 @@ function getStream() {
     video: true
   };
 
+  function getUserMedia(options, successCallback, failureCallback) {
+  var api = navigator.getUserMedia || navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia || navigator.msGetUserMedia;
+  if (api) {
+    return api.bind(navigator)(options, successCallback, failureCallback);
+  }
+}
+
+var theStream;
+
+function getStream() {
+  if (!navigator.getUserMedia && !navigator.webkitGetUserMedia &&
+    !navigator.mozGetUserMedia && !navigator.msGetUserMedia) {
+    alert('User Media API not supported.');
+    return;
+  }
+  
+  var constraints = {
+    video: true
+  };
+
   getUserMedia(constraints, function (stream) {
     var mediaControl = document.querySelector('video');
     if ('srcObject' in mediaControl) {
@@ -73,13 +94,13 @@ function getStream() {
   }, function (err) {
     alert('Error: ' + err);
   });
+}
 
 function takePhoto() {
   if (!('ImageCapture' in window)) {
     alert('ImageCapture is not available');
     return;
   }
-  
   
   if (!theStream) {
     alert('Grab the video stream first!');
@@ -91,19 +112,21 @@ function takePhoto() {
   theImageCapturer.takePhoto()
     .then(blob => {
       var theImageTag = document.getElementById("imageTag");
-      theImageTag.src = URL.createObjectURL(blob, {autorevoke : false});
+      theImageTag.src = URL.createObjectURL(blob);
+    
     //
     var reader = new FileReader();
 reader.readAsDataURL(blob); 
 reader.onloadend = function() {
   var base64data = reader.result;                
   console.log(base64data);
-}})
+}
+    //
     
-
+    })
     .catch(err => alert('Error: ' + err));
-
-}}
+}
+  
 function loadPhoto(blob) {
   return new Promise((resolve, _) => {
     const reader = new FileReader();
@@ -122,7 +145,7 @@ function appendLocation(location, verb) {
   target.appendChild(newLocation);
 }
 
-
+//Location
 
 if ('geolocation' in navigator) {
   document.getElementById('askButton').addEventListener('click', function () {
