@@ -39,6 +39,13 @@ if (navigator.serviceWorker) {
       .then(regEvent => console.log("Service worker registered!"))
       .catch(err => console.log("Service worker not registered"));
   });
+  
+  
+  
+  
+  
+  
+  
 function getUserMedia(options, successCallback, failureCallback) {
   var api = navigator.getUserMedia || navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -60,26 +67,6 @@ function getStream() {
     video: true
   };
 
-  function getUserMedia(options, successCallback, failureCallback) {
-  var api = navigator.getUserMedia || navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia || navigator.msGetUserMedia;
-  if (api) {
-    return api.bind(navigator)(options, successCallback, failureCallback);
-  }
-}
-
-var theStream;
-
-function getStream() {
-  if (!navigator.getUserMedia && !navigator.webkitGetUserMedia &&
-    !navigator.mozGetUserMedia && !navigator.msGetUserMedia) {
-    alert('User Media API not supported.');
-    return;
-  }
-  
-  var constraints = {
-    video: true
-  };
 
   getUserMedia(constraints, function (stream) {
     var mediaControl = document.querySelector('video');
@@ -115,24 +102,13 @@ function takePhoto() {
       theImageTag.src = URL.createObjectURL(blob);
     
     //
-    var reader = new FileReader();
-reader.readAsDataURL(blob); 
-reader.onloadend = function() {
-  var base64data = reader.result;                
-  console.log(base64data);
-}
     //
-    
     })
     .catch(err => alert('Error: ' + err));
 }
   
 function loadPhoto(blob) {
-  return new Promise((resolve, _) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result);
-    reader.readAsDataURL(blob);
-  });
+
 }
 
 var target = document.getElementById('target');
