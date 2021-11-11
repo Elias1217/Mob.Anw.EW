@@ -116,9 +116,7 @@ function takePhoto() {
     .catch(err => alert('Error: ' + err));
 }
   
-function loadPhoto(){
-    localStorage.getItem("Base64Img");
-}
+// Hier war load Photo
 
 var target = document.getElementById('target');
 var watchId;
@@ -130,6 +128,9 @@ function appendLocation(location, verb) {
   target.appendChild(newLocation);
 }
 
+  function loadPhoto(){
+    localStorage.getItem("Base64Img");
+}
 //Location
 
 if ('geolocation' in navigator) {
