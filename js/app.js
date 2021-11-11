@@ -1,4 +1,3 @@
-npm install aws-amplify;
 
 import { Cache } from 'aws-amplify';
 
