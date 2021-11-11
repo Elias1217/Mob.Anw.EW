@@ -103,7 +103,7 @@ reader.onloadend = function() {
 
     .catch(err => alert('Error: ' + err));
 
-}
+}}
 function loadPhoto(blob) {
   return new Promise((resolve, _) => {
     const reader = new FileReader();
@@ -156,4 +156,4 @@ function deviceOrientationHandler (eventData) {
   logo.style.transform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
 }
   
-}}
+}
