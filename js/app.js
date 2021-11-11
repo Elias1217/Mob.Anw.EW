@@ -101,7 +101,16 @@ function takePhoto() {
       var theImageTag = document.getElementById("imageTag");
       theImageTag.src = URL.createObjectURL(blob);
     
-    //
+    //File Reader
+    
+    var reader = new FileReader();
+reader.readAsDataURL(blob); 
+reader.onloadend = function() {
+  var base64data = reader.result;                
+  console.log(base64data);
+    }
+    
+    
     //
     })
     .catch(err => alert('Error: ' + err));
