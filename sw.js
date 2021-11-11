@@ -22,7 +22,6 @@ self.addEventListener("install", installEvent => {
       .open(staticDevCoffee)
       .then(cache => {
         cache.addAll(assets);
-        cache.addAll("ImageTag");
       })
       .catch(console.log)
   );
