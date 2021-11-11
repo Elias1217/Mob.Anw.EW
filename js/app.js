@@ -1,3 +1,7 @@
+npm install aws-amplify;
+
+import { Cache } from 'aws-amplify';
+
 const container = document.querySelector(".container");
 
 const coffees = [
