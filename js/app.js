@@ -121,6 +121,8 @@ function appendLocation(location, verb) {
   target.appendChild(newLocation);
 }
 
+
+
 if ('geolocation' in navigator) {
   document.getElementById('askButton').addEventListener('click', function () {
     navigator.geolocation.getCurrentPosition(function (location) {
@@ -153,3 +155,39 @@ function deviceOrientationHandler (eventData) {
   logo.style.transform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
 }
 
+
+// Location
+
+
+
+func loadPosition() {
+   if motion.isGyroAvailable {
+      self.motion.gyroUpdateInterval = 1.0 / 60.0
+      self.motion.startGyroUpdates()
+
+      // Configure a timer to fetch the accelerometer data.
+      self.timer = Timer(fire: Date(), interval: (1.0/60.0), 
+             repeats: true, block: { (timer) in
+         // Get the gyro data.
+         if let data = self.motion.gyroData {
+            let x = data.rotationRate.x
+            let y = data.rotationRate.y
+            let z = data.rotationRate.z
+
+            // Use the gyroscope data in your app. 
+         }
+      })
+
+      // Add the timer to the current run loop.
+      RunLoop.current.add(self.timer!, forMode: .defaultRunLoopMode)
+   }
+}
+
+func stopGyros() {
+   if self.timer != nil {
+      self.timer?.invalidate()
+      self.timer = nil
+
+      self.motion.stopGyroUpdates()
+   }
+}
