@@ -101,9 +101,7 @@ reader.onloadend = function() {
   console.log(base64data);
 }
     
-    //
-      localStorage.setItem("ImageTag", blobimage);
-    })
+
     .catch(err => alert('Error: ' + err));
 }
       
@@ -114,11 +112,13 @@ reader.onloadend = function() {
 
   
 }
-function loadPhoto() {
-  //var picdata = localStorage.getItem('ImageTag');
-  document.getElementById("tablebanner").src = picdata;
-    return;
-  }
+function loadPhoto(blob) {
+  return new Promise((resolve, _) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.readAsDataURL(blob);
+  });
+}
 
 var target = document.getElementById('target');
 var watchId;
