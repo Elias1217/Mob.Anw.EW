@@ -118,7 +118,7 @@ function takePhoto() {
   
 function loadPhoto(){
  var picdata = localStorage.getItem("Base64Img");
-  document.getElementById("tablebanner") = picdata;
+  document.getElementById("tablebanner").src = picdata;
 }
 
 var target = document.getElementById('target');
