@@ -103,11 +103,7 @@ reader.onloadend = function() {
     
 
     .catch(err => alert('Error: ' + err));
-}
-      
-
- 
-
+    
   
 
   
