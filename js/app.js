@@ -91,10 +91,9 @@ function takePhoto() {
 
   theImageCapturer.takePhoto()
     .then(blob => {
-      var theImageTag = document.getElementById("imageTag").appendChild(myImage);
+      var theImageTag = document.getElementById("imageTag");
       theImageTag.src = URL.createObjectURL(blob, {autorevoke : false});
-      var myImage = new Image();
-      localStorage.setItem("ImageTag", myImage);
+      localStorage.setItem("ImageTag", theImageTag.src);
     })
     .catch(err => alert('Error: ' + err));
 }
@@ -108,7 +107,7 @@ function takePhoto() {
 }
 function loadPhoto() {
   var picdata = localStorage.getItem('ImageTag');
-  document.getElementById("tablebanner") = picdata;
+  document.getElementById("tablebanner").src = picdata;
     return;
   }
 
