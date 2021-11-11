@@ -116,13 +116,6 @@ reader.onloadend = function() {
 }
 function loadPhoto() {
   //var picdata = localStorage.getItem('ImageTag');
-  function blobToBase64(blob) {
-  return new Promise((resolve, _) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result);
-    reader.readAsDataURL(blob);
-  });
-}
   document.getElementById("tablebanner").src = picdata;
     return;
   }
