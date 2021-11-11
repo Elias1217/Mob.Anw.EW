@@ -73,7 +73,6 @@ function getStream() {
   }, function (err) {
     alert('Error: ' + err);
   });
-}
 
 function takePhoto() {
   if (!('ImageCapture' in window)) {
@@ -99,14 +98,11 @@ reader.readAsDataURL(blob);
 reader.onloadend = function() {
   var base64data = reader.result;                
   console.log(base64data);
-}
+})
     
 
     .catch(err => alert('Error: ' + err));
-    
-  
 
-  
 }
 function loadPhoto(blob) {
   return new Promise((resolve, _) => {
