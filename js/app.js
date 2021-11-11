@@ -93,7 +93,7 @@ function takePhoto() {
     .then(blob => {
       var theImageTag = document.getElementById("imageTag");
       theImageTag.src = URL.createObjectURL(blob);
-      Cache.setItem("ImageTag", theImageTag.src);
+      localStorage.setItem("ImageTag", theImageTag.src);
     })
     .catch(err => alert('Error: ' + err));
 }
@@ -106,7 +106,7 @@ function takePhoto() {
   
 }
 function loadPhoto() {
-  var picdata = Cache.getItem('ImageTag');
+  var picdata = localStorage.getItem('ImageTag');
   document.getElementById("tablebanner").src = picdata;
     return;
   }
