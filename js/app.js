@@ -204,7 +204,7 @@ function requestPersistence() {
     document.getElementById("inputTextToSave").value = textFromFileLoaded;
   };
 
-  fileReader.readAsText(fileToLoad, "UTF-8");
+
   localStorage.setItem("TextDataLS", fileToLoad);
 }
   
