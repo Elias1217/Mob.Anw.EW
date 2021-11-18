@@ -205,8 +205,7 @@ function requestPersistence() {
     localStorage.setItem("TextDataLS", textFromFileLoaded);
   };
 
-fileReader.readAsText(fileToLoad, "UTF-8");
-  localStorage.setItem("TextDataLS", fileToLoad);
+fileReader.readAsText(TextDataLS, "UTF-8");
 }
   
   //Textreader
