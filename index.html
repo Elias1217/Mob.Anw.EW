@@ -83,7 +83,7 @@
         
         <textarea id="inputTextToSave" name="y" style="width:400px;height:150px;"></textarea>
         
-        //Permissions
+        //Local Notification//
         
         <p>Current permission status is <b id="status">unavailable</b>.</p>
 
@@ -91,6 +91,129 @@
         <p><button onclick="nonPersistentNotification()">Non-persistent notification</button></p>
         <p><button onclick="persistentNotification()">Persistent notification</button></p>
 
+        
+        //Permissions//
+        
+        if ('permissions' in navigator) {
+  var logTarget = document.getElementById('logTarget');
+
+  function handleChange(permissionName, newState) {
+    var timeBadge = new Date().toTimeString().split(' ')[0];
+    var newStateInfo = document.createElement('p');
+    newStateInfo.innerHTML = '' + timeBadge + ' State of ' + permissionName + ' permission status changed to ' + newState + '.';
+    logTarget.appendChild(newStateInfo);
+  }
+
+  function checkPermission(permissionName, descriptor) {
+    try {
+    navigator.permissions.query(Object.assign({name: permissionName}, descriptor))
+      .then(function (permission) {
+        document.getElementById(permissionName + '-status').innerHTML = permission.state;
+        permission.addEventListener('change', function (e) {
+          document.getElementById(permissionName + '-status').innerHTML = permission.state;
+          handleChange(permissionName, permission.state);
+        });
+      });
+    } catch (e) {
+    }
+  }
+
+  checkPermission('geolocation');
+  checkPermission('notifications');
+  checkPermission('push', {userVisibleOnly: true});
+  checkPermission('midi', {sysex: true});
+  checkPermission('camera');
+  checkPermission('microphone');
+  checkPermission('background-sync');
+  checkPermission('ambient-light-sensor');
+  checkPermission('accelerometer');
+  checkPermission('gyroscope');
+  checkPermission('magnetometer');
+
+  var noop = function () {};
+  navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+  
+  function requestGeolocation() {
+    navigator.geolocation.getCurrentPosition(noop);
+  }
+
+  function requestNotifications() {
+    Notification.requestPermission();
+  }
+
+  function requestPush() {
+    navigator.serviceWorker.getRegistration()
+      .then(function (serviceWorkerRegistration) {
+        serviceWorkerRegistration.pushManager.subscribe();
+      });
+  }
+
+  function requestMidi() {
+    navigator.requestMIDIAccess({sysex: true});
+  }
+  
+  function requestCamera() {
+    navigator.getUserMedia({video: true}, noop, noop)
+  }
+  
+  function requestMicrophone() {
+    navigator.getUserMedia({audio: true}, noop, noop)
+  }
+}
+HTML
+<div>
+  <p>
+    <b><a href="/geolocation.html">Geolocation</a></b> permission status is <b id="geolocation-status">unknown</b>.
+    
+    <button onclick="requestGeolocation()">Request</button>
+  </p>
+  <p>
+    <b><a href="/local-notifications.html">Notifications</a></b> permission status is <b id="notifications-status">unknown</b>.
+    
+    <button onclick="requestNotifications()">Request</button>
+  </p>
+  <p>
+    <b><a href="/push-notifications.html">Push</a></b> permission status is <b id="push-status">unknown</b>.
+    
+    <button onclick="requestPush()">Request</button>
+  </p>
+  <p>
+    <b>Midi</b> permission status is <b id="midi-status">unknown</b>.
+    
+    <button onclick="requestMidi()">Request</button>
+  </p>
+  <p>
+    <b><a href="/camera-microphone.html">Camera</a></b> permission status is <b id="camera-status">unknown</b>.
+    
+    <button onclick="requestCamera()">Request</button>
+  </p>
+  <p>
+    <b><a href="/camera-microphone.html">Microphone</a></b> permission status is <b id="microphone-status">unknown</b>.
+    
+    <button onclick="requestMicrophone()">Request</button>
+  </p>
+  <p>
+    <b><a href="/background-sync.html">Background Sync</a></b> permission status is <b id="background-sync-status">unknown</b>.
+  </p>
+  <p>
+    <b><a href="/ambient-light.html">Ambient Light Sensor</a></b> permission status is <b id="ambient-light-sensor-status">unknown</b>.
+  </p>
+  <p>
+    <b><a href="/device-motion.html">Accelerometer</a></b> permission status is <b id="accelerometer-status">unknown</b>.
+  </p>
+  <p>
+    <b><a href="/device-motion.html">Gyroscope</a></b> permission status is <b id="gyroscope-status">unknown</b>.
+  </p>
+  <p>
+    <b><a href="/device-motion.html">Magnetometer</a></b> permission status is <b id="magnetometer-status">unknown</b>.
+  </p>
+</div>
+
+<p id="logTarget"></p>
+
+        //Permissions//
+        
+        
       <div class="container">
       </div>
     </main>
