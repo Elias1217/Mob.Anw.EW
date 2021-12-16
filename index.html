@@ -90,6 +90,17 @@
         const datum = document.getElementById("datum").value;
         const kategorie = document.getElementById("kategorie").value;
         const wert = document.getElementById("wert").value;
+       
+        var table = document.getElementById("table"), sumVal = 0;
+            
+            for(var i = 1; i < table.rows.length; i++)
+            {
+                sumVal = sumVal + parseInt(table.rows[i].cells[3].innerHTML);
+            }
+            
+            document.getElementById("summe").innerHTML = "Sum Value = " + sumVal;
+            console.log(sumVal);
+        
         const summe = document.getElementById("wert").value;
         tbodyEl.innerHTML += `
             <tr>
