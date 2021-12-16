@@ -59,7 +59,7 @@
         <label for="summe">Summe</label>
         <input type="summe" name="summe" id="summe" />
       </div>
-      <button>Submit</button>
+      <button type="submit">Submit</button>
          <button onclick="savetolocal()"></button>
     </form>
       
@@ -115,10 +115,10 @@
       
     function savetolocal(){
       localStorage.setItem("beschreibung", JSON.stringify("beschreibung"));
-            localStorage.setItem("beschreibung", JSON.stringify("datum"));
-            localStorage.setItem("beschreibung", JSON.stringify("kategorie"));
-            localStorage.setItem("beschreibung", JSON.stringify("wert"));
-      localStorage.setItem("beschreibung", JSON.stringify("summe"));
+            localStorage.setItem("datum", JSON.stringify("datum"));
+            localStorage.setItem("kategorie", JSON.stringify("kategorie"));
+            localStorage.setItem("wert", JSON.stringify("wert"));
+      localStorage.setItem("summe", JSON.stringify("summe"));
       };
 
 </script>
