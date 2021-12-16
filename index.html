@@ -84,7 +84,7 @@
         const datum = document.getElementById("datum").value;
         const kategorie = document.getElementById("kategorie").value;
         const wert = document.getElementById("wert").value;
-        let lastRow = table.rows[table.rows.length-1];
+        let lastRow = tbody.rows[tbody.rows.length-1];
         let lastCell = lastRow.cells[lastRow.cells.length-1];
         console.log(lastCell.text());
         var summe = document.getElementById("summe").value + document.getElementById("wert").value;
