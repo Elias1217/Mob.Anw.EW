@@ -12,7 +12,7 @@ self.addEventListener("install", installEvent => {
   console.log(installEvent);
   installEvent.waitUntil(
     caches
-      .open(staticDevCoffee)
+      .open(bankaccountv1)
       .then(cache => {
         cache.addAll(assets);
       })
