@@ -87,6 +87,12 @@
         const wert = document.getElementById("wert").value;
         const summe = document.getElementById("summe").value;
         
+        localStorage.setItem("beschreibung",JSON.stringify("beschreibung"));
+            localStorage.setItem("datum", JSON.stringify("datum"));
+            localStorage.setItem("kategorie", JSON.stringify("kategorie"));
+            localStorage.setItem("wert", JSON.stringify("wert"));
+      localStorage.setItem("summe", JSON.stringify("summe"));
+        
         
         tbodyEl.innerHTML += `
             <tr>
@@ -114,11 +120,6 @@
     
       
     function savetolocal(){
-      const beschreibung = document.getElementById("beschreibung").value;
-        const datum = document.getElementById("datum").value;
-        const kategorie = document.getElementById("kategorie").value;
-        const wert = document.getElementById("wert").value;
-        const summe = document.getElementById("summe").value;
       localStorage.setItem("beschreibung","beschreibung");
             localStorage.setItem("datum", JSON.stringify("datum"));
             localStorage.setItem("kategorie", JSON.stringify("kategorie"));
