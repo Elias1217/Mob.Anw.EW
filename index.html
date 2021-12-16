@@ -61,7 +61,7 @@
       <button>Submit</button>
     </form>
       
-<table>
+<table id="table1">
       <thead>
         <tr>
            <th>Beschreibung</th>
@@ -91,7 +91,7 @@
         const kategorie = document.getElementById("kategorie").value;
         const wert = document.getElementById("wert").value;
        
-        var table = document.getElementById("table"), sumVal = 0;
+        var table = document.getElementById("table1"), sumVal = 0;
             
             for(var i = 1; i < table.rows.length; i++)
             {
@@ -101,7 +101,7 @@
             document.getElementById("summe").innerHTML = "Sum Value = " + sumVal;
             console.log(sumVal);
         
-        const summe = document.getElementById("wert").value;
+        const summe = document.getElementById("sumVal").value;
         tbodyEl.innerHTML += `
             <tr>
                 <td>${beschreibung}</td>
