@@ -15,7 +15,7 @@ const assets = [
   "/images/coffee9.jpg"
 ];
 
-var Version = 1;
+var Version = 2;
 
 self.addEventListener("install", installEvent => {
   console.log(installEvent);
