@@ -6,7 +6,7 @@ const assets = [
   "/js/app.js",
 ];
 
-var Version = 2;
+var Version = 3;
 
 self.addEventListener("install", installEvent => {
   console.log(installEvent);
