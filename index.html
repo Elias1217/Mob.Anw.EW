@@ -91,7 +91,7 @@
         const datum = document.getElementById("datum").value;
         const kategorie = document.getElementById("kategorie").value;
         const wert = document.getElementById("wert").value;
-        const summe = document.getElementById("summe").value;
+        const summe = summe + document.getElementById("wert").value;
         tbodyEl.innerHTML += `
             <tr>
                 <td>${beschreibung}</td>
