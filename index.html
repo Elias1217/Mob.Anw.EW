@@ -84,8 +84,7 @@
         const datum = document.getElementById("datum").value;
         const kategorie = document.getElementById("kategorie").value;
         const wert = document.getElementById("wert").value;
-        DataRow lastRow = yourTable.Rows[yourTable.Rows.Count-1];
-        var summe = lastRow.getElementById("summe").value + document.getElementById("wert").value;
+        var summe = document.getElementById("summe").value + document.getElementById("wert").value;
         tbodyEl.innerHTML += `
             <tr>
                 <td>${beschreibung}</td>
