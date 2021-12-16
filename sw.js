@@ -38,3 +38,20 @@ self.addEventListener("fetch", event => {
       .catch(console.log)
   );
 });
+
+self.addEventListener('activate', function(event) {
+
+  var cacheAllowlist = ['dev-coffee-site-v1'];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheAllowlist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
