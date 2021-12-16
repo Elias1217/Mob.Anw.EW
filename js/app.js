@@ -39,9 +39,7 @@ if (navigator.serviceWorker) {
       .then(regEvent => console.log("Service worker registered!"))
       .catch(err => console.log("Service worker not registered"));
   });
-  
-  
-  
+}
   
   
   
